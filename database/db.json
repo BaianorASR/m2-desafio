@@ -1,0 +1,29 @@
+{
+  "plans": {
+    "internet": [
+      { "id": "8fyAFFV", "value": 1, "price": 3490, "category": "internet" },
+      { "id": "tm8kem0", "value": 2, "price": 4990, "category": "internet" },
+      { "id": "5ksZqvq", "value": 4, "price": 7990, "category": "internet" },
+      { "id": "gfcRl13", "value": 8, "price": 8990, "category": "internet" }
+    ],
+
+    "phone": [
+      {
+        "id": "mjnXYG2",
+        "value": "Vivo fixo ilimitado",
+        "price": 4990,
+        "category": "phone"
+      }
+    ],
+
+    "tv": [
+      {
+        "id": "if9zxzz",
+        "value": "Ultimate HD",
+        "price": 3790,
+        "category": "tv"
+      },
+      { "id": "8RufuJ2", "value": "Full HD", "price": 2490, "category": "tv" }
+    ]
+  }
+}

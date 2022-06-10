@@ -1,0 +1,128 @@
+<div>
+    <div class="p-2">
+      <div class="mb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800">Internet</h2>
+          <span class="text-neutral-600 text-sm font-light">
+            Descrição sobre a categoria
+          </span>
+        </div>
+        <ul class="flex flex-col gap-1">
+          <li
+            v-for="item in products.internet"
+            :key="item.id"
+            class="flex justify-between w-full p-1 bg-white border rounded-sm shadow-sm cursor-pointer"
+          >
+            <label class="flex" :for="item.id">
+              <div class="flex items-center">
+                <input
+                  :id="item.id"
+                  type="radio"
+                  name="internet"
+                  @change="addItemToCart(item)"
+                />
+                <p class="ml-1 font-semibold">{{ item.speed }}MEGAS</p>
+              </div>
+            </label>
+            <div class="flex items-center gap-3">
+              <p class="text-neutral-800 text-xs font-semibold">
+                {{ centsToCurrency(item.price) }}
+              </p>
+              <span class="text-neutral-700 text-sm">+ DETALHES</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800">Fixo</h2>
+          <span class="text-neutral-600 text-sm font-light"
+            >Descrição sobre a categoria</span
+          >
+        </div>
+        <ul class="flex flex-col gap-1">
+          <li
+            v-for="item in products.phone"
+            :key="item.id"
+            class="flex justify-between w-full p-1 bg-white border rounded-sm shadow-sm cursor-pointer"
+          >
+            <label class="flex" :for="item.id">
+              <div class="flex items-center">
+                <input
+                  :id="item.id"
+                  type="radio"
+                  name="phone"
+                  @change="addItemToCart(item)"
+                />
+                <p class="ml-1 font-semibold">{{ item.type }}</p>
+              </div>
+            </label>
+            <div class="flex items-center gap-3">
+              <p class="text-neutral-800 text-xs font-semibold">
+                {{ centsToCurrency(item.price) }}
+              </p>
+              <span class="text-neutral-700 text-sm">+ DETALHES</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <div>
+          <h2 class="text-2xl font-bold text-blue-800">TV</h2>
+          <p class="text-neutral-600 text-sm font-light">
+            Descrição sobre a categoria
+          </p>
+        </div>
+        <ul class="flex flex-col gap-1">
+          <li
+            v-for="item in products.tv"
+            :key="item.id"
+            class="flex justify-between w-full p-1 bg-white border rounded-sm shadow-sm cursor-pointer"
+          >
+            <label class="flex" :for="item.id">
+              <div class="flex items-center">
+                <input
+                  :id="item.id"
+                  type="radio"
+                  name="tv"
+                  @change="addItemToCart(item)"
+                />
+                <p class="ml-1 font-semibold">{{ item.type }}</p>
+              </div>
+            </label>
+            <div class="flex items-center gap-3">
+              <p class="text-neutral-800 text-xs font-semibold">
+                {{ centsToCurrency(item.price) }}
+              </p>
+              <span class="text-neutral-700 text-sm">+ DETALHES</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bg-neutral-200 fixed bottom-0 flex flex-col w-screen p-2">
+      <div class="text-neutral-600 flex items-center justify-between">
+        <p>Taxa de instalação</p>
+        <p class="text-xs">Grátis</p>
+      </div>
+      <div class="flex items-center justify-between font-bold text-blue-800">
+        <p>Total</p>
+        <div class="relative flex items-center gap-2 cursor-pointer">
+          <p>{{ totalPriceOfCart }}</p>
+          <span
+            class="text-neutral-900 absolute top-0 right-0 flex items-center justify-center w-4 h-4 text-xs bg-white rounded-full"
+            >4</span
+          >
+          <img src="@/assets/images/cart.svg" alt="Cart icon" class="w-8" />
+        </div>
+      </div>
+      <button
+        class="hover:brightness-90 h-10 my-2 text-white transition-colors bg-blue-600 rounded"
+        type="button"
+      >
+        Continuar
+      </button>
+    </div>
+  </div>
