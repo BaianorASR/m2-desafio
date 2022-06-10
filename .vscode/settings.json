@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["semibold"]
+  "cSpell.words": ["semibold"],
+  "conventionalCommits.scopes": ["global"]
 }
