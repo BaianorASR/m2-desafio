@@ -20,6 +20,10 @@ const mutations: MutationTree<CartState> = {
 
     state.items = [...state.items, payload]
   },
+
+  REMOVE_ITEM(state, payload: string) {
+    state.items = state.items.filter((item) => item.id !== payload)
+  },
 }
 
 export default mutations

@@ -13,6 +13,18 @@ const getters: GetterTree<CartState, CartState> = {
         currency: 'BRL',
       })
   },
+
+  getTotalItemsOfCart: (state) => {
+    return state.items.length
+  },
+
+  getInternetPlanAlreadySelected: (state) => {
+    return state.items.some((item) => item.category === 'internet')
+  },
+
+  getProductsOfCart: (state) => {
+    return state.items
+  },
 }
 
 export default getters

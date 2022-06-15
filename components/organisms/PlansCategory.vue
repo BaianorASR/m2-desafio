@@ -1,5 +1,12 @@
 <template>
-  <div class="mb-4">
+  <div
+    class="mb-4"
+    :class="[
+      internetPlanAlreadySelected
+        ? 'pointer-events-none opacity-50 cursor-not-allowed'
+        : '',
+    ]"
+  >
     <div>
       <h2 class="text-2xl font-bold text-blue-800">
         {{ category.toUpperCase() }}
@@ -20,6 +27,7 @@
               :id="item.id"
               type="radio"
               :name="category"
+              :value="valueOfProduct"
               @change="addItemToCart(item)"
             />
             <p class="ml-1 font-semibold">
@@ -41,6 +49,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapActions } from 'vuex'
+import { ICartProduct } from '~/store/cart'
 
 interface IPlansProps
   extends Array<{
@@ -63,8 +72,26 @@ export default Vue.extend({
       required: true,
     },
     plan: {
-      type: Object as () => IPlansProps,
+      type: Array as () => IPlansProps,
       required: true,
+      default: () => [],
+    },
+  },
+
+  computed: {
+    internetPlanAlreadySelected() {
+      const bool = this.$store.getters['cart/getInternetPlanAlreadySelected']
+      return this.category !== 'internet' && !bool
+    },
+
+    valueOfProduct(): ICartProduct[] {
+      const products = this.$store.getters['cart/getProductsOfCart']
+
+      return (
+        products.find(
+          (product: ICartProduct) => product?.category === this.category
+        )?.value || ''
+      )
     },
   },
 

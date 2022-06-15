@@ -8,7 +8,7 @@
 <script lang="ts">
 import { mapActions } from 'vuex'
 import Vue from 'vue'
-import PlansOptions from '~/components/templates/PlansOptions.vue'
+import PlansOptions from '@/components/templates/PlansOptions.vue'
 import CartCheckout from '~/components/organisms/CartCheckout.vue'
 
 export default Vue.extend({
